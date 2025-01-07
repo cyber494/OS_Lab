@@ -9,7 +9,7 @@
 ![Expected Output](images/image.png)
 
 ### Input Data Set
-An Excel file is prepared as shown below:
+#### An Excel file is prepared as shown below:
 ![Input Data Set](images/image-1.png)
 ![Input Data Set](images/image-2.png)
 
