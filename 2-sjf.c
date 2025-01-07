@@ -38,7 +38,7 @@ void main()
 	printf("\n");
 	for (i = 0; i < n; i++)
 	{
-		printf("%2d\t%2d\t%2d\t%2d\n", i, bt[i], compt[i], tat[i], wt[i]);
+		printf("%2d\t%2d\t%2d\t%2d\n", bt[i], compt[i], tat[i], wt[i]);
 	}
 	printf("\n");
 	printf(" Avgwt = %.2f\tAvgtat = %.2f\n", avgwt, avgtat);
@@ -55,10 +55,10 @@ void main()
 
     Bt      Ct      Tat     Wt
 
-    0       3       3       3
-    1       6       9       9
-    2       7      16      16
-    3       8      24      24
+    3       3       3       0
+    6       9       9       3
+    7      16      16       9
+    8      24      24       16
 
     Avgwt = 7.00   Avgtat = 13.00
 */

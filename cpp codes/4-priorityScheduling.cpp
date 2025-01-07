@@ -1,14 +1,12 @@
 //PRIORITY SCHEDULING
-#include <iostream>
-#include <iomanip>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     cout << "Enter number of processes: ";
     int n;
     cin >> n;
-
-    int bt[n], p[n],ct[n], wt[n], tat[n];
+    vector<int> bt(n), p(n), ct(n), wt(n), tat(n);
     cout << "Enter the Burst time of " <<n<<" processess : ";
     for (int i = 0; i < n; i++) {
         cin >> bt[i];
@@ -17,15 +15,11 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> p[i];
     }
-
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (p[i] > p[j]) {
-                swap(bt[i],bt[j]);
-                swap(p[i],p[j]);
-            }
-        }
-    }
+    
+    sort(p.begin(),p.end(),greater<int>());
+    sort(bt.begin(),bt.end(),[&](int i,int j){
+        return p[i]>p[j];
+    });
 
     ct[0] = bt[0];
     wt[0] = 0;

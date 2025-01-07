@@ -6,7 +6,7 @@ int main() {
     cout << "Enter number of processes: ";
     int n;
     cin >> n;
-    int bt[n], at[n], ct[n], tat[n], wt[n];
+    vector<int> bt(n), at(n), ct(n), tat(n), wt(n);
 
     for (int i = 0; i < n; i++) {
         cout << "Enter the Arrival time of p" <<i+1<<" : ";
@@ -18,7 +18,11 @@ int main() {
     }
     ct[0] = bt[0] - at[0];
     for (int i = 1; i < n; i++) {
-        ct[i] = bt[i] + ct[i - 1];
+        if(ct[i-1]<at[i]){
+            ct[i] = at[i] + bt[i];
+        }else{
+            ct[i] = bt[i] + ct[i - 1];
+        }
     }
 
     for (int i = 0; i < n; i++) {
