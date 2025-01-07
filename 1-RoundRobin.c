@@ -1,55 +1,79 @@
 #include <stdio.h>
+#include <conio.h>
 
-int main() {
-    int n;
+void main() {
+    int i, n, tq, full, time1 = 0;
+    int bt[10], ct[10], time[10], wt[10], tat[10];
+    char pn[10][10];
+    float avgwt = 0.0;
+
     printf("Enter number of processes: ");
     scanf("%d", &n);
 
-    int bt[n], ct[n], time[n], tat[n], wt[n];
-    printf("Enter the Burst time of %d processes: ", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &bt[i]);
-        time[i] = bt[i];
+    printf("Enter process name and burst time of %d processes:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%s %d", pn[i], &bt[i]);
+        time[i] = bt[i];  
     }
 
-    int tq;
     printf("Enter quantum: ");
     scanf("%d", &tq);
 
-    int full = n;
-    int time1 = 0;
-    while (full) {
-        for (int i = 0; i < n; i++) {
-            if (bt[i] >= tq) {
-                bt[i] -= tq;
-                time1 += tq;
-            } else if (bt[i] > 0) {
-                time1 += bt[i];
-                bt[i] = 0;
-            }
+    full = n;  
 
-            if (bt[i] == 0 && time[i] != -1) {
-                full--;
-                tat[i] = time1;
-                time[i] = -1;
+    while (full) {
+        for (i = 0; i < n; i++) {
+            if (time[i] > 0) {
+                if (time[i] > tq) {
+                    time[i] -= tq;
+                    time1 += tq;
+                } else {
+                    time1 += time[i];
+                    time[i] = 0;
+                    tat[i] = time1;  
+                    full--;         
+                }
             }
         }
     }
 
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
         ct[i] = tat[i];
-        wt[i] = tat[i] - time[i];
+        wt[i] = tat[i] - bt[i];
     }
 
-    float avgwt = 0;
-    printf("PN\tBt\tCt\tTat\tWt\n");
-    for (int i = 0; i < n; i++) {
-        printf("p%d\t%d\t%d\t%d\t%d\n", i + 1, time[i], ct[i], tat[i], wt[i]);
+    printf("\nPN\tBt\tCt\tTat\tWt\n");
+    for (i = 0; i < n; i++) {
+        printf("%2s\t%2d\t%2d\t%2d\t%2d\n", pn[i], bt[i], ct[i], tat[i], wt[i]);
         avgwt += wt[i];
     }
 
-    avgwt /= n;
+    avgwt = avgwt / n;
     printf("\nAverage waiting time = %.2f\n", avgwt);
 
-    return 0;
+    getch();
 }
+
+
+/*
+    output :
+    Enter number of processes: 5
+    Enter process name and burst time of 5 processes:
+    1 10
+    2 5
+    3 15
+    4 3
+    5 20
+    Enter quantum: 5
+
+    PN      Bt      Ct      Tat     Wt
+    1      10      28      28      18
+    2       5      10      10       5
+    3      15      43      43      28
+    4       3      18      18      15
+    5      20      53      53      33
+
+    Average waiting time = 19.80
+
+
+*/
