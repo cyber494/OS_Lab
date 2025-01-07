@@ -1,23 +1,32 @@
-//FCFS
-//https://gist.github.com/rahul-misala/17ec243123f9a7a306bbd8469fea77b4
+//SJF
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    float sumwt = 0.0, sumtat = 0.0, avgwt, avgtat;
-    cout << "Enter number of processes: ";
+    
     int n;
+    cout << "Enter number of processes: ";
     cin >> n;
-    int bt[n], at[n], ct[n], tat[n], wt[n];
-
+    vector<int> bt(n);
+    vector<int> at(n);
+    vector<int> ct(n);
+    vector<int> wt(n);
+    vector<int> tat(n);
+    float sumwt, sumtat,avgwt, avgtat;
+    int mini = INT_MAX;
     for (int i = 0; i < n; i++) {
         cout << "Enter the Arrival time of p" <<i+1<<" : ";
         cin >> at[i];
+        mini = min(mini,at[i]);
     }
     for (int i = 0; i < n; i++) {
         cout << "Enter the burst time of p" <<i+1<<" : ";
         cin >> bt[i];
     }
-    ct[0] = bt[0] - at[0];
+
+    sort(at.begin(),at.end());
+    sort(bt.begin(),bt.end());
+    
+    ct[0] = bt[0]+mini;
     for (int i = 1; i < n; i++) {
         ct[i] = bt[i] + ct[i - 1];
     }
@@ -29,18 +38,16 @@ int main() {
         sumwt += wt[i];
     }
 
-
     avgwt = sumwt / n;
     avgtat = sumtat / n;
 
-    cout << "\nPN\tBt\tCt\tTat\tWt"<<endl;
+    cout << "\nBt\tCt\tTat\tWt"<<endl;
     for (int i = 0; i < n; i++) {
-        cout << "p"<<i+1 << "\t" << bt[i] << "\t" << ct[i] << "\t" << tat[i] << "\t" << wt[i] << "\n";
+        cout << bt[i] << "\t" << ct[i] << "\t" << tat[i] << "\t" << wt[i] <<endl;
     }
 
-  
-    cout <<"Average waiting time = " << avgwt<<endl;
-    cout <<"Average turnaround time = " <<avgtat <<endl;
+    cout << "Average waiting time = " << avgwt<<endl;
+    cout << "Average turnaround time = " << avgtat <<endl;;
 
     return 0;
 }

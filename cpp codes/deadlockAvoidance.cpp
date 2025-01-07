@@ -73,15 +73,3 @@ int main(){
     }
 }
 
-// output:
-// Enter Number of Files : 3
-// Enter size of hardDisk : 20
-// Enter the start index of the File 1: 0
-// Enter the length of the File 1: 5
-// Enter the start index of the File 2: 2
-// Enter the length of the File 2: 3
-// Enter the start index of the File 3: 9
-// Enter the length of the File 3: 6
-// Hard Disk : 
-// indices taken : 0       1       2       3       4       5       6       7       8       9       10      11      12      13      14      15      16      17      18      19
-// Files taken   : 1       1       1       1       1       0       0       0       0       3       3       3       3       3       3       0       0       0       0       0

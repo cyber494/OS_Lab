@@ -47,19 +47,3 @@ int main() {
     cout << "\nAverage waiting time = " << avgwt << "\n";
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
