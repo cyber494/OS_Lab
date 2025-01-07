@@ -1,48 +1,48 @@
-Experiments: 2,3,4
-2.	Determine the Drugs importance with respect to Age, Cholesterol and BP using C 5.0.
-3. Predict the accuracy of the test data set using Neural Net model using a Case Study of Botanical data set.
-4.	Compare the C 5.0 and Neural Net using the sample data.
-SOLUTION:
-Expected output:
-![alt text](image-7.png)
+# Experiments: 2, 3, 4
 
+## Experiment 2
+**Determine the Drugs importance with respect to Age, Cholesterol, and BP using C 5.0.**
 
+## Experiment 3
+**Predict the accuracy of the test data set using Neural Net model using a Case Study of Botanical data set.**
 
+## Experiment 4
+**Compare the C 5.0 and Neural Net using the sample data.**
 
-Input data set:
-![alt text](image-8.png)
-Output dataset:
+## Solution
 
-Output of Neural Net Model
-![alt text](image-9.png)
+### Expected Output
+![Expected Output](images/image-7.png)
 
+### Input Data Set
+![Input Data Set](images/image-8.png)
 
+### Output Data Set
 
-Output of C5.0 Model 
+#### Output of Neural Net Model
+![Neural Net Model Output](images/image-9.png)
 
-![alt text](image-10.png)
-Output of C5.0 Model viewer which is shown in tree format
+#### Output of C5.0 Model
+![C5.0 Model Output](images/image-10.png)
 
-![alt text](image-11.png)
+#### Output of C5.0 Model Viewer (Tree Format)
+![C5.0 Model Viewer](images/image-11.png)
 
-Comparision: Attribute Importance is as follows
-Neural net Model	: BP- 0.2928, Age- 0.1070, Cholestrol- 0.1023
-C 5.0			: 2 Level Decision Tree is prepared with BP as root attribute (level 1) with Age and Cholesterol Attributes at level 2
-** As a result, Neural Net and C 5.0 Models are giving the same information.
+### Comparison
+**Attribute Importance:**
 
-Procedure:  The following are the nodes used for this exercise with respective settings.
-
-![alt text](image-12.png)
+- **Neural Net Model:** 
+    -
 
 
 
 
 Settings for C5.0 Model
 
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 
 
 
 Settings for Neural Net Model
 
-![alt text](image-14.png)
+![alt text](images/image-14.png)
